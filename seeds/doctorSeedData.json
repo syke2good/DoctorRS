@@ -1,0 +1,30 @@
+[
+  {
+    "first_name": "Stephen",
+    "last_name": "Strange",
+    "specialty": "neurosurgeon",
+    "phone_number": "5558675309",
+    "address": "272 Berkeley Place Park Slope Brooklyn NY",
+    "email": "sorcerer@supreme.edu",
+    "password": "magiccarpet"
+  },
+  {
+    "first_name": "John",
+    "last_name": "Dolittle",
+    "specialty": "pediatrician",
+    "phone_number": "5551998266",
+    "address": "2100 Green Street San Francisco CA",
+    "email": "doolittle@hotmail.com",
+    "password": "eddiemurphy"
+  },
+  {
+    "first_name": "John",
+    "last_name": "Dorian",
+    "specialty": "family practice",
+    "phone_number": "5552001102",
+    "address": "12629 Riverside Drive North Hollywood CA",
+    "email": "jd@sacredheart.com",
+    "password": "turkleton"
+  }
+
+]
