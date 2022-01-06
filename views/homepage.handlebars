@@ -1,10 +1,12 @@
-{{#each users as |user| }}
-<div class="row align-center mb-5">
-  <div class="col-md-6">
-    <h2>{{{get_emoji}}} {{user.name}}</h2>
-  </div>
-  <div class="col-md-6">
-    <h3><a href="mailto:{{user.email}}">{{user.email}}</a></h3>
-  </div>
+<div>
+  <h2>Basic DateTime</h2>
+  <input type="text" id="basicDate" placeholder="Please select Date Time" data-input>
+
+  <h2>Time Picker</h2>
+  <input type="text" id="timePicker" placeholder="Please select Time">
 </div>
-{{/each}}
+<h2>Week Number with Reset Date</h2>
+<div class=resetDate>
+  <input type="text" placeholder="Select Date.." data-input>
+  <button class="input-button" title="clear" data-clear>RESET</button>
+</div>
