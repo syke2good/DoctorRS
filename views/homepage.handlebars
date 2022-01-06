@@ -1,9 +1,22 @@
 <div>
+  <div id="myDropdown" class="dropdown-content">
+    <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()">
+    <button onclick="myFunction()" class="dropbtn">Choices</button>
+    {{!-- <a href="#about">About</a>
+    <a href="#base">Base</a>
+    <a href="#blog">Blog</a>
+    <a href="#contact">Contact</a>
+    <a href="#custom">Custom</a>
+    <a href="#support">Support</a>
+    <a href="#tools">Tools</a> --}}
+  </div>
   <h2>Basic DateTime</h2>
   <input type="text" id="basicDate" placeholder="Please select Date Time" data-input>
+  <button class="input-button" title="clear" data-clear>SAVE</button>
 
   <h2>Time Picker</h2>
   <input type="text" id="timePicker" placeholder="Please select Time">
+  <button class="input-button" title="clear" data-clear>SAVE</button>
 </div>
 <h2>Week Number with Reset Date</h2>
 <div class=resetDate>
