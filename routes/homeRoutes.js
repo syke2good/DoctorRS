@@ -1,12 +1,15 @@
 const router = require('express').Router();
 
-router.get('/', (req, res)=>{
+router.get('/', (req, res) => {
     res.render('homepage');
 })
 
-router.get('/login', (req, res)=>{
+router.get('/login', (req, res) => {
     res.render('login');
 })
 
+router.get('/form', (req, res) => {
+    res.render('form');
+})
 
 module.exports = router;
