@@ -1,10 +1,11 @@
 body {
   text-align: center;
   background: cornflowerblue;
+  /* background-image: url('/public/photos/types-of-doctors-1600114658.jpg'); */
 }
 img {
-  width: 50px;
-  border-radius: 50px;
+  width: 500px;
+  border-radius: 80px;
 }
 input {
   border: 2px solid whitesmoke;
