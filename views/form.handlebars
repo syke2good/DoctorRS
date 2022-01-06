@@ -1,0 +1,30 @@
+<body>
+    <form name="my">
+        <input name="one" value="New">
+        <input name="two" value="Existing">
+        <input type="radio" name="age" value="10">
+        <input type="radio" name="age" value="20">
+        <fieldset name="userFields">
+            <legend>info</legend>
+            <input name="login" type="text">
+        </fieldset>
+        <select id="select">
+            <option value="apple">Doctor</option>
+            <option value="pear">Nurse</option>
+            <option value="banana">Management</option>
+        </select>
+
+        <select id="select" multiple>
+            <option value="blues" selected>Blues</option>
+            <option value="rock" selected>Rock</option>
+            <option value="classic">Classic</option>
+        </select>
+    </form>
+
+    <script>
+        let selected = Array.from(select.options)
+            .filter(option => option.selected)
+            .map(option => option.value);
+
+    </script>
+</body>
