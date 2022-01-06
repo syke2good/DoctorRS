@@ -1,11 +1,11 @@
 const router = require('express').Router();
 
 router.get('/', (req, res)=>{
-    res.json('homepage');
+    res.render('homepage');
 })
 
 router.get('/login', (req, res)=>{
-    res.json('login');
+    res.render('login');
 })
 
 
