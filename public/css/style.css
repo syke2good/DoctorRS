@@ -1,24 +1,24 @@
-header, .project:not(:last-child) {
-  border-bottom: 1px solid #ccc;
+body {
+  text-align: center;
+  background: cornflowerblue;
 }
-
-.no-button {
-  background: none;
+img {
+  width: 50px;
+  border-radius: 50px;
+}
+input {
+  border: 2px solid whitesmoke;
+  border-radius: 20px;
+  padding: 12px 10px;
+  text-align: center;
+  width: 250px;
+}
+button {
   border: none;
-  padding: 0;
+  border-radius: 10px;
+  padding: 12px 10px;
+  text-align: center;
   cursor: pointer;
-  color: #1b89bc;
-  text-decoration: none;
-  font-size: 100%;
-}
-
-.no-button:hover {
-  color: #065b83;
-  text-decoration: underline;
-}
-
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
+  background: coral;
+  color: whitesmoke;
 }
