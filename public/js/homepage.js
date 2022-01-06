@@ -1,6 +1,7 @@
 $("#basicDate").flatpickr({
     enableTime: true,
-    dateFormat: "F, d Y H:i"
+    dateFormat: "F, d Y H:i",
+    altFormat: "F j, Y (h:S K)"
 });
 
 $("#rangeDate").flatpickr({
