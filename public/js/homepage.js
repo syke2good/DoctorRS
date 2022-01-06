@@ -1,6 +1,7 @@
 $("#basicDate").flatpickr({
     enableTime: true,
     dateFormat: "F, d Y H:i",
+    altInput: true,
     altFormat: "F j, Y (h:S K)"
 });
 
