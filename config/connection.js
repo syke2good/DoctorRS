@@ -14,19 +14,6 @@ if (process.env.JAWSDB_URL) {
       host: 'localhost',
       dialect: 'mysql',
       port: 3306,
-      dialectOptions: {
-        useUTC: false, //for reading from database
-        dateStrings: true,
-        typeCast: function (field, next) { // for reading from database
-          if (field.type === 'TIME') {
-            return field.string()
-          }
-            return next()
-          },
-      },
-      timezone: '-07:00'
-
-  
     }
   );
 }
