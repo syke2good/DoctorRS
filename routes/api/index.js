@@ -8,3 +8,4 @@ router.use('/schedules', appointmentRoutes);
 
 
 module.exports = router;
+

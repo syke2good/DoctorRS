@@ -59,26 +59,3 @@ router.post('/logout', (req, res) => {
 });
 
 module.exports = router;
-
-
-
-
-
-// const { Appointment } = require('../../models');
-
-// const router = require('express').Router();
-// module.exports = router;
-
-
-
-// router.get('/project/:id', async (req, res) => {
-//     try {
-//       const projectData = await Doctor.findByPk(req.params.id, {
-//         include: [
-//           {
-//             model: Appointment,
-//             attributes: ['name'],
-//           },
-//         ],
-//       });
-  
