@@ -38,8 +38,8 @@ const dateFormHandler = async (event) => {
 };
 
 //disable selected date and time function
-function booked(){
-    if (dateInput===){
-        alert(dateInput+"is already booked");
-    }
-}
+// function booked(){
+//     if (dateInput===){
+//         alert(dateInput+"is already booked");
+//     }
+// }
