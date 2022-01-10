@@ -4,8 +4,7 @@ const appointmentRoutes = require('./appointmentRoutes');
 
 
 router.use('/doctors', doctorRoutes);
-router.use('/schedules', appointmentRoutes);
+router.use('/appointments', appointmentRoutes);
 
 
 module.exports = router;
-
