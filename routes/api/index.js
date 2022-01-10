@@ -3,6 +3,7 @@ const doctorRoutes = require('./doctorRoutes');
 const appointmentRoutes = require('./appointmentRoutes');
 
 
+
 router.use('/doctors', doctorRoutes);
 router.use('/appointments', appointmentRoutes);
 
