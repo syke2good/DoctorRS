@@ -27,7 +27,7 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    const validPassword = await doctorData.checkPassword(req.body.password);
+    const validPassword = await Doctor.checkPassword(req.body.password);
 
     if (!validPassword) {
       res
@@ -40,7 +40,9 @@ router.post('/login', async (req, res) => {
       req.session.doctor_id = doctorData.id;
       req.session.logged_in = true;
 
-      res.json({ doctor: doctorData, message: 'You are now logged in!' });
+      res.json({  
+          message: 'You are now logged in!' 
+        });
     });
 
   } catch (err) {
