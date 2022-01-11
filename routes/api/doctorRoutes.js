@@ -29,7 +29,6 @@ router.post('/login', async (req, res) => {
         .json({ message: 'Incorrect email or password, please try again' });
       return;
     }
-
     const validPassword = bcrypt.compareSync(req.body.password, doctorData.password);
 
     if (!validPassword) {
