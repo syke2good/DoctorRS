@@ -49,25 +49,65 @@ router.get('/project/:id', async (req, res) => {
   }
 });
 
+// router.get(['/search',"/:id"], async (req, res) => {
+//     doctor_specialty = req.query.specialty
+//     doctor_last_name = req. query.
+
 // Use withAuth middleware to prevent access to route
-router.get('/profile', withAuth, async (req, res) => {
+router.get("/search/:id", async (req, res) => {
   try {
+    if (req.params.id=="specialty"){
+        const doctorData = await Doctor.findAll({
+            where: {
+                doctor_specialty: req.params.id
+            }
+        }, {
+          attributes: { exclude: ['password'] },
+          include: [{ model: Appointment }],
+        });
+    }
+    if (req.params.id == "last"){
+        const doctorData = await Doctor.findOne({
+            where: {
+                doctor_last_name: req.params.id
+            }
+        }, {
+          attributes: { exclude: ['password'] },
+          include: [{ model: Appointment }],
+        });
+    }
     // Find the logged in user based on the session ID
-    const appointmentData = await Doctor.findByPk(req.session.user_id, {
+    const doctorData = await Doctor.findAll({
+        where: {
+            doctor_specialty: req.params.specialty
+        }
+    }, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Doctor }],
+      include: [{ model: Appointment }],
     });
 
-    const Doctor = doctorData.get({ plain: true });
+    const doctor = doctorData.get({ plain: true });
 
-    res.render('profile', {
-      ...doctor,
-      logged_in: true
+    res.render('project', {
+      ...project,
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
+    const doctors = doctorData.map(doctor => doctor.get({ plain: true }));
+
+    res.render('search', {
+    doctors
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
