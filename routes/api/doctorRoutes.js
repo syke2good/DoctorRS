@@ -1,9 +1,10 @@
 const router = require('express').Router();
 const { Doctor } = require('../../models');
+const bcrypt = require('bcryptjs');
 
 router.post('/', async (req, res) => {
   try {
-    console.log("hello");
+    console.log(err);
     const doctorData = await Doctor.create(req.body);
 
     req.session.save(() => {
@@ -22,8 +23,7 @@ router.post('/login', async (req, res) => {
   try {
       console.log (req.body)
     const doctorData = await Doctor.findOne({ where: { email: req.body.email } });
-    console.log("hello");
-
+    console.log(doctorData);
     if (!doctorData) {
       res
         .status(400)
@@ -31,7 +31,7 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    const validPassword = await Doctor.checkPassword(req.body.password);
+    const validPassword = bcrypt.compareSync(req.body.password, doctorData.password);
 
     if (!validPassword) {
       res
