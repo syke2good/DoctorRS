@@ -53,52 +53,28 @@ router.get('/project/:id', async (req, res) => {
 //     doctor_specialty = req.query.specialty
 //     doctor_last_name = req. query.
 
-// Use withAuth middleware to prevent access to route
+router.get('/search', async (req, res) => {
+    try {
+        res.render('search');
+    } catch (err) {
+      res.status(500).json(err);
+    }
+});
+
 router.get("/search/:id", async (req, res) => {
   try {
-    if (req.params.id=="specialty"){
-        const doctorData = await Doctor.findAll({
-            where: {
-                doctor_specialty: req.params.id
-            }
-        }, {
-          attributes: { exclude: ['password'] },
-          include: [{ model: Appointment }],
-        });
-    }
-    if (req.params.id == "last"){
-        const doctorData = await Doctor.findOne({
-            where: {
-                doctor_last_name: req.params.id
-            }
-        }, {
-          attributes: { exclude: ['password'] },
-          include: [{ model: Appointment }],
-        });
-    }
-    // Find the logged in user based on the session ID
     const doctorData = await Doctor.findAll({
         where: {
-            doctor_specialty: req.params.specialty
+            specialty: req.params.id
         }
     }, {
       attributes: { exclude: ['password'] },
       include: [{ model: Appointment }],
     });
 
-    const doctor = doctorData.get({ plain: true });
-
-    res.render('project', {
-      ...project,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
+    // Serialize data so the template can read it
     const doctors = doctorData.map(doctor => doctor.get({ plain: true }));
-
+    console.log(doctors)
     res.render('search', {
     doctors
     });
@@ -106,6 +82,16 @@ router.get("/search/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+//     const doctors = doctorData.map(doctor => doctor.get({ plain: true }));
+
+//     res.render('search', {
+//     doctors
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 
 

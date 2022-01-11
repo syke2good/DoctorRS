@@ -47,8 +47,3 @@ document
   .addEventListener('click', delButtonHandler);
 
 
-const lastName= $("lNameBtn").val()
-const specialty = $("specialtyField").val()
-const radioSelection =$("radioSelection").val()
-
-const selection = radioSelection==="specialty" ? `spec=${specialty} : lastName=
