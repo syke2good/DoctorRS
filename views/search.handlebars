@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-md-6">
+    <p>
+        <input id="searchy" placeholder="search"></input>
+        <br/>
+        <button id="drSubmit">submit</button>
+    </p>
+  </div>
+</div>
+    {{#each doctors as |doctor|}}
+    <div class="doctor col-md-6">
+        <p>
+            Dr.{{doctor.last_name}},{{doctor.first_name}}
+            Specialty:{{doctor.specialty}}
+            Address:{{doctor.address}}
+            Phone Number:{{doctor.phone_number}}
+        </p>
+    </div>
+    {{/each}}
+
+<script src="/public/js/search.js"></script>

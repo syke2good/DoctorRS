@@ -64,25 +64,51 @@ router.get('/project/:id', async (req, res) => {
   }
 });
 
-// Use withAuth middleware to prevent access to route
-router.get('/profile', withAuth, async (req, res) => {
+// router.get(['/search',"/:id"], async (req, res) => {
+//     doctor_specialty = req.query.specialty
+//     doctor_last_name = req. query.
+
+router.get('/search', async (req, res) => {
+    try {
+        res.render('search');
+    } catch (err) {
+      res.status(500).json(err);
+    }
+});
+
+router.get("/search/:id", async (req, res) => {
   try {
-    // Find the logged in user based on the session ID
-    const appointmentData = await Doctor.findByPk(req.session.user_id, {
+    const doctorData = await Doctor.findAll({
+        where: {
+            specialty: req.params.id
+        }
+    }, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Doctor }],
+      include: [{ model: Appointment }],
     });
 
-    const Doctor = doctorData.get({ plain: true });
-
-    res.render('profile', {
-      ...doctor,
-      logged_in: true
+    // Serialize data so the template can read it
+    const doctors = doctorData.map(doctor => doctor.get({ plain: true }));
+    console.log(doctors)
+    res.render('search', {
+    doctors
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
+
+//     const doctors = doctorData.map(doctor => doctor.get({ plain: true }));
+
+//     res.render('search', {
+//     doctors
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
+
+
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
