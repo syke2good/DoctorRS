@@ -1,7 +1,18 @@
 const router = require('express').Router();
+const {Appointment,Doctor} = require("../models")
 
 router.get('/', (req, res) => {
-    res.render('homepage');
+    Doctor.findOne({where:{id:req.session.doctor_id},include:[Appointment]})
+    .then(function(doctorData){
+        const doctor = doctorData.get({plain:true})
+        console.log(doctor)
+        res.render('homepage', {
+           ...doctor
+        });
+    }).catch(function(err){
+        console.log(err)
+        res.json(err)
+    })
 })
 
 router.get('/login', (req, res) => {
@@ -9,7 +20,7 @@ router.get('/login', (req, res) => {
 })
 
 router.get('/form', (req, res) => {
-    res.render('form');
+    res.render('user');
 })
 
 module.exports = router;

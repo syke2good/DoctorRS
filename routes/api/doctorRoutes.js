@@ -3,6 +3,7 @@ const { Doctor } = require('../../models');
 
 router.post('/', async (req, res) => {
   try {
+    console.log("hello");
     const doctorData = await Doctor.create(req.body);
 
     req.session.save(() => {
