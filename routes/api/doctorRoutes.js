@@ -4,7 +4,6 @@ const bcrypt = require('bcryptjs');
 
 router.post('/', async (req, res) => {
   try {
-    console.log(err);
     const doctorData = await Doctor.create(req.body);
 
     req.session.save(() => {
