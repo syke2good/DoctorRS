@@ -23,3 +23,9 @@ button {
   background: coral;
   color: whitesmoke;
 }
+
+.flatpickr-calendar {
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}

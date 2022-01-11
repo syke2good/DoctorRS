@@ -13,13 +13,16 @@ router.post('/', async (req, res) => {
       res.status(200).json(doctorData);
     });
   } catch (err) {
+    console.log(err)
     res.status(400).json(err);
   }
 });
 
 router.post('/login', async (req, res) => {
   try {
+      console.log (req.body)
     const doctorData = await Doctor.findOne({ where: { email: req.body.email } });
+    console.log("hello");
 
     if (!doctorData) {
       res
@@ -47,6 +50,7 @@ router.post('/login', async (req, res) => {
     });
 
   } catch (err) {
+      console.log(err)
     res.status(400).json(err);
   }
 });

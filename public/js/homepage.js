@@ -1,5 +1,3 @@
-const res = require("express/lib/response");
-
 $("#basicDate").flatpickr({
   inline: true,
   enableTime: true,
@@ -33,10 +31,10 @@ confirmBtn.addEventListener("click", async function () {
 
 });
 
-const resetBtn = document.querySelector("resetBtn");
+const resetBtn = document.querySelector("#resetBtn");
 resetBtn.addEventListener("click", async function (){
   const selectDate = document.querySelector("#dateSelect");
-  const dateid = selectDate.choices[selectDate.selectedIndex].value
+  const dateid = selectDate.options[selectDate.selectedIndex].value
   const response = await fetch('/api/appointments/'+ dateid, {
     method: 'DELETE',
     headers: { 'Content-Type': 'application/json' },

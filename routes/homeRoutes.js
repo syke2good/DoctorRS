@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const {Appointment,Doctor} = require("../models")
-
-router.get('/', (req, res) => {
+const withAuth = require ("../utils/auth")
+router.get('/', withAuth, (req, res) => {
     Doctor.findOne({where:{id:req.session.doctor_id},include:[Appointment]})
     .then(function(doctorData){
         const doctor = doctorData.get({plain:true})
